@@ -1,0 +1,1233 @@
+{
+  "bills": {
+    "apartment_id": "sunrise-heights",
+    "bills": [
+      {
+        "month": "2024-04",
+        "total_units_kwh": 8549,
+        "total_amount": 105792.69
+      },
+      {
+        "month": "2024-05",
+        "total_units_kwh": 8711,
+        "total_amount": 106800.74
+      },
+      {
+        "month": "2024-06",
+        "total_units_kwh": 8027,
+        "total_amount": 100124.34
+      },
+      {
+        "month": "2024-07",
+        "total_units_kwh": 8209,
+        "total_amount": 102204.58
+      },
+      {
+        "month": "2024-08",
+        "total_units_kwh": 8254,
+        "total_amount": 101748.57
+      },
+      {
+        "month": "2024-09",
+        "total_units_kwh": 8051,
+        "total_amount": 100565.92
+      },
+      {
+        "month": "2024-10",
+        "total_units_kwh": 8427,
+        "total_amount": 103591.31
+      },
+      {
+        "month": "2024-11",
+        "total_units_kwh": 8063,
+        "total_amount": 100935.82
+      },
+      {
+        "month": "2024-12",
+        "total_units_kwh": 8463,
+        "total_amount": 104135.9
+      },
+      {
+        "month": "2025-01",
+        "total_units_kwh": 8357,
+        "total_amount": 103611.03
+      },
+      {
+        "month": "2025-02",
+        "total_units_kwh": 7611,
+        "total_amount": 96029.51
+      },
+      {
+        "month": "2025-03",
+        "total_units_kwh": 8823,
+        "total_amount": 107406.49
+      },
+      {
+        "month": "2025-04",
+        "total_units_kwh": 8553,
+        "total_amount": 105145.05
+      },
+      {
+        "month": "2025-05",
+        "total_units_kwh": 8916,
+        "total_amount": 109276.33
+      },
+      {
+        "month": "2025-06",
+        "total_units_kwh": 8166,
+        "total_amount": 101164.12
+      },
+      {
+        "month": "2025-07",
+        "total_units_kwh": 8231,
+        "total_amount": 102174.85
+      },
+      {
+        "month": "2025-08",
+        "total_units_kwh": 8320,
+        "total_amount": 103113.5
+      },
+      {
+        "month": "2025-09",
+        "total_units_kwh": 7995,
+        "total_amount": 99845.35
+      },
+      {
+        "month": "2025-10",
+        "total_units_kwh": 8477,
+        "total_amount": 105461.76
+      },
+      {
+        "month": "2025-11",
+        "total_units_kwh": 8247,
+        "total_amount": 102752.55
+      },
+      {
+        "month": "2025-12",
+        "total_units_kwh": 8416,
+        "total_amount": 104431.48
+      },
+      {
+        "month": "2026-01",
+        "total_units_kwh": 8355,
+        "total_amount": 102142.03
+      },
+      {
+        "month": "2026-02",
+        "total_units_kwh": 7735,
+        "total_amount": 96804.32
+      },
+      {
+        "month": "2026-03",
+        "total_units_kwh": 9418,
+        "total_amount": 113049.97
+      },
+      {
+        "month": "2026-04",
+        "total_units_kwh": 8568,
+        "total_amount": 105125.26
+      }
+    ]
+  },
+  "analysis": {
+    "meta": {
+      "thresholds": {
+        "tank_start_rise_points": 15,
+        "pump_abnormal_delta_h_per_day": 1.5,
+        "success_yoy_band_pct": 5,
+        "rolling_window": 6,
+        "success_p1_hours_tolerance_pct": 10,
+        "coverage_most_high": 1.3,
+        "z_alert": 3,
+        "z_watch_no_yoy": 3.5,
+        "min_history": 4,
+        "sd_floor_pp": 0.75,
+        "confidence_high_abs_pct": 10,
+        "confidence_medium_abs_pct": 20,
+        "pump_abnormal_ratio": 1.3,
+        "switch_not_ok_share": 0.5,
+        "coverage_most_low": 0.7,
+        "yoy_alert_pct": 5
+      },
+      "data_window": {
+        "first_month": "2024-04",
+        "pump_log_months": [
+          "2025-03",
+          "2026-02",
+          "2026-03",
+          "2026-04"
+        ],
+        "last_month": "2026-04",
+        "months": 25
+      },
+      "note": "All input data is synthetic (fictional apartment, generated for a hackathon demo).",
+      "assumptions": {
+        "lighting_manual_saving_fraction": 0.4,
+        "rolling_sd_ddof": 1,
+        "season_multipliers_label": "Assumption: coarse, user-adjustable seasonal multipliers (not measured values). They are intentionally imperfect, so the reconciliation gap is realistic.",
+        "lighting_manual_saving_label": "illustrative, validate with a sub-meter",
+        "season_multipliers_jan_to_dec": {
+          "pump": [
+            1,
+            1,
+            1.1,
+            1.1,
+            1.1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "water_treatment": [
+            1,
+            1,
+            1.1,
+            1.1,
+            1.1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "stp": [
+            1,
+            1,
+            1.05,
+            1.05,
+            1.05,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "lift": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "lighting": [
+            1.04,
+            1.04,
+            0.96,
+            0.96,
+            0.96,
+            0.96,
+            1,
+            1,
+            1,
+            1,
+            1.04,
+            1.04
+          ]
+        },
+        "estimate_uses_nameplate_only": "No true-factor is applied; unmetered load is not estimated."
+      }
+    },
+    "months": [
+      {
+        "unexplained_pct": 9.91,
+        "confidence": "High",
+        "rolling_z": null,
+        "unexplained_kwh": 846.96,
+        "actual_units": 8549,
+        "month": "2024-04",
+        "yoy_pct": null,
+        "status": "normal",
+        "reasons": [
+          "insufficient history: 0 prior months available, need 4"
+        ],
+        "estimated_by_category": {
+          "lighting": 1551.74,
+          "pump": 1458.6,
+          "stp": 3150,
+          "water_treatment": 326.7,
+          "lift": 1215
+        },
+        "estimated_total": 7702.04
+      },
+      {
+        "estimated_total": 7958.78,
+        "month": "2024-05",
+        "yoy_pct": null,
+        "actual_units": 8711,
+        "unexplained_kwh": 752.22,
+        "unexplained_pct": 8.64,
+        "estimated_by_category": {
+          "lighting": 1603.47,
+          "lift": 1255.5,
+          "stp": 3255,
+          "water_treatment": 337.59,
+          "pump": 1507.22
+        },
+        "confidence": "High",
+        "rolling_z": null,
+        "status": "normal",
+        "reasons": [
+          "insufficient history: 1 prior months available, need 4"
+        ]
+      },
+      {
+        "status": "normal",
+        "unexplained_pct": 7.94,
+        "unexplained_kwh": 637.26,
+        "month": "2024-06",
+        "confidence": "High",
+        "estimated_by_category": {
+          "water_treatment": 297,
+          "stp": 3000,
+          "pump": 1326,
+          "lift": 1215,
+          "lighting": 1551.74
+        },
+        "estimated_total": 7389.74,
+        "reasons": [
+          "insufficient history: 2 prior months available, need 4"
+        ],
+        "actual_units": 8027,
+        "yoy_pct": null,
+        "rolling_z": null
+      },
+      {
+        "rolling_z": null,
+        "status": "normal",
+        "yoy_pct": null,
+        "actual_units": 8209,
+        "unexplained_kwh": 506.12,
+        "estimated_total": 7702.88,
+        "confidence": "High",
+        "estimated_by_category": {
+          "stp": 3100,
+          "lighting": 1670.28,
+          "pump": 1370.2,
+          "lift": 1255.5,
+          "water_treatment": 306.9
+        },
+        "month": "2024-07",
+        "reasons": [
+          "insufficient history: 3 prior months available, need 4"
+        ],
+        "unexplained_pct": 6.17
+      },
+      {
+        "rolling_z": -0.95,
+        "estimated_total": 7702.88,
+        "confidence": "High",
+        "estimated_by_category": {
+          "pump": 1370.2,
+          "lift": 1255.5,
+          "stp": 3100,
+          "water_treatment": 306.9,
+          "lighting": 1670.28
+        },
+        "yoy_pct": null,
+        "unexplained_pct": 6.68,
+        "reasons": [
+          "Unexplained share is 6.7% of billed units; the previous 4 months averaged 8.2% (sd 1.56 pp, floor 0.75 pp), giving rolling z = -1.0 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "status": "normal",
+        "unexplained_kwh": 551.12,
+        "actual_units": 8254,
+        "month": "2024-08"
+      },
+      {
+        "unexplained_pct": 7.41,
+        "reasons": [
+          "Unexplained share is 7.4% of billed units; the previous 5 months averaged 7.9% (sd 1.51 pp, floor 0.75 pp), giving rolling z = -0.3 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_kwh": 596.6,
+        "estimated_total": 7454.4,
+        "estimated_by_category": {
+          "pump": 1326,
+          "lift": 1215,
+          "water_treatment": 297,
+          "lighting": 1616.4,
+          "stp": 3000
+        },
+        "rolling_z": -0.3,
+        "yoy_pct": null,
+        "actual_units": 8051,
+        "month": "2024-09",
+        "confidence": "High",
+        "status": "normal"
+      },
+      {
+        "estimated_total": 7702.88,
+        "month": "2024-10",
+        "unexplained_pct": 8.59,
+        "estimated_by_category": {
+          "pump": 1370.2,
+          "lift": 1255.5,
+          "stp": 3100,
+          "water_treatment": 306.9,
+          "lighting": 1670.28
+        },
+        "actual_units": 8427,
+        "confidence": "High",
+        "yoy_pct": null,
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 8.6% of billed units; the previous 6 months averaged 7.8% (sd 1.36 pp, floor 0.75 pp), giving rolling z = 0.6 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "rolling_z": 0.59,
+        "unexplained_kwh": 724.12
+      },
+      {
+        "rolling_z": -0.81,
+        "reasons": [
+          "Unexplained share is 6.7% of billed units; the previous 6 months averaged 7.6% (sd 1.01 pp, floor 0.75 pp), giving rolling z = -0.8 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_pct": 6.75,
+        "status": "normal",
+        "estimated_by_category": {
+          "lighting": 1681.06,
+          "stp": 3000,
+          "pump": 1326,
+          "water_treatment": 297,
+          "lift": 1215
+        },
+        "month": "2024-11",
+        "estimated_total": 7519.06,
+        "unexplained_kwh": 543.94,
+        "confidence": "High",
+        "actual_units": 8063,
+        "yoy_pct": null
+      },
+      {
+        "unexplained_kwh": 693.31,
+        "unexplained_pct": 8.19,
+        "month": "2024-12",
+        "confidence": "High",
+        "estimated_total": 7769.69,
+        "estimated_by_category": {
+          "pump": 1370.2,
+          "lift": 1255.5,
+          "stp": 3100,
+          "water_treatment": 306.9,
+          "lighting": 1737.09
+        },
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 8.2% of billed units; the previous 6 months averaged 7.3% (sd 0.90 pp, floor 0.75 pp), giving rolling z = 1.0 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "yoy_pct": null,
+        "actual_units": 8463,
+        "rolling_z": 1.04
+      },
+      {
+        "unexplained_kwh": 587.31,
+        "estimated_total": 7769.69,
+        "confidence": "High",
+        "estimated_by_category": {
+          "lift": 1255.5,
+          "stp": 3100,
+          "pump": 1370.2,
+          "water_treatment": 306.9,
+          "lighting": 1737.09
+        },
+        "month": "2025-01",
+        "actual_units": 8357,
+        "yoy_pct": null,
+        "rolling_z": -0.29,
+        "unexplained_pct": 7.03,
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 7.0% of billed units; the previous 6 months averaged 7.3% (sd 0.94 pp, floor 0.75 pp), giving rolling z = -0.3 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ]
+      },
+      {
+        "unexplained_pct": 7.79,
+        "estimated_total": 7017.79,
+        "yoy_pct": null,
+        "rolling_z": 0.45,
+        "reasons": [
+          "Unexplained share is 7.8% of billed units; the previous 6 months averaged 7.4% (sd 0.79 pp, floor 0.75 pp), giving rolling z = 0.4 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_kwh": 593.21,
+        "status": "normal",
+        "month": "2025-02",
+        "actual_units": 7611,
+        "confidence": "High",
+        "estimated_by_category": {
+          "water_treatment": 277.2,
+          "stp": 2800,
+          "lighting": 1568.99,
+          "pump": 1237.6,
+          "lift": 1134
+        }
+      },
+      {
+        "estimated_by_category": {
+          "lighting": 1603.47,
+          "lift": 1255.5,
+          "water_treatment": 337.59,
+          "stp": 3255,
+          "pump": 1507.22
+        },
+        "unexplained_pct": 9.8,
+        "actual_units": 8823,
+        "confidence": "High",
+        "yoy_pct": null,
+        "unexplained_kwh": 864.22,
+        "estimated_total": 7958.78,
+        "rolling_z": 2.89,
+        "status": "normal",
+        "month": "2025-03",
+        "reasons": [
+          "Unexplained share is 9.8% of billed units; the previous 6 months averaged 7.6% (sd 0.70 pp, floor 0.75 pp), giving rolling z = 2.9 (alert threshold 3.0).",
+          "No year-over-year comparison is available (month 12 months earlier is absent), so this month can be at most 'watch' and only if z >= 3.5.",
+          "Normal: no threshold combination is met."
+        ]
+      },
+      {
+        "actual_units": 8553,
+        "unexplained_pct": 9.95,
+        "unexplained_kwh": 850.96,
+        "confidence": "High",
+        "yoy_pct": 0.05,
+        "estimated_by_category": {
+          "stp": 3150,
+          "lighting": 1551.74,
+          "pump": 1458.6,
+          "water_treatment": 326.7,
+          "lift": 1215
+        },
+        "month": "2025-04",
+        "rolling_z": 1.73,
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 9.9% of billed units; the previous 6 months averaged 8.0% (sd 1.11 pp, floor 0.75 pp), giving rolling z = 1.7 (alert threshold 3.0).",
+          "Billed units are 8553 kWh versus 8549 kWh a year earlier (+0.0% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "estimated_total": 7702.04
+      },
+      {
+        "reasons": [
+          "Unexplained share is 10.7% of billed units; the previous 6 months averaged 8.3% (sd 1.36 pp, floor 0.75 pp), giving rolling z = 1.8 (alert threshold 3.0).",
+          "Billed units are 8916 kWh versus 8711 kWh a year earlier (+2.4% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "confidence": "Medium",
+        "status": "normal",
+        "estimated_total": 7958.78,
+        "actual_units": 8916,
+        "month": "2025-05",
+        "estimated_by_category": {
+          "pump": 1507.22,
+          "lift": 1255.5,
+          "stp": 3255,
+          "water_treatment": 337.59,
+          "lighting": 1603.47
+        },
+        "unexplained_kwh": 957.22,
+        "yoy_pct": 2.35,
+        "unexplained_pct": 10.74,
+        "rolling_z": 1.83
+      },
+      {
+        "estimated_total": 7389.74,
+        "unexplained_kwh": 776.26,
+        "reasons": [
+          "Unexplained share is 9.5% of billed units; the previous 6 months averaged 8.9% (sd 1.45 pp, floor 0.75 pp), giving rolling z = 0.4 (alert threshold 3.0).",
+          "Billed units are 8166 kWh versus 8027 kWh a year earlier (+1.7% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "estimated_by_category": {
+          "lift": 1215,
+          "pump": 1326,
+          "stp": 3000,
+          "water_treatment": 297,
+          "lighting": 1551.74
+        },
+        "yoy_pct": 1.73,
+        "unexplained_pct": 9.51,
+        "status": "normal",
+        "rolling_z": 0.41,
+        "actual_units": 8166,
+        "confidence": "High",
+        "month": "2025-06"
+      },
+      {
+        "actual_units": 8231,
+        "yoy_pct": 0.27,
+        "estimated_by_category": {
+          "stp": 3100,
+          "water_treatment": 306.9,
+          "lighting": 1670.28,
+          "pump": 1370.2,
+          "lift": 1255.5
+        },
+        "unexplained_kwh": 528.12,
+        "rolling_z": -1.92,
+        "status": "normal",
+        "confidence": "High",
+        "month": "2025-07",
+        "reasons": [
+          "Unexplained share is 6.4% of billed units; the previous 6 months averaged 9.1% (sd 1.42 pp, floor 0.75 pp), giving rolling z = -1.9 (alert threshold 3.0).",
+          "Billed units are 8231 kWh versus 8209 kWh a year earlier (+0.3% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_pct": 6.42,
+        "estimated_total": 7702.88
+      },
+      {
+        "actual_units": 8320,
+        "reasons": [
+          "Unexplained share is 7.4% of billed units; the previous 6 months averaged 9.0% (sd 1.61 pp, floor 0.75 pp), giving rolling z = -1.0 (alert threshold 3.0).",
+          "Billed units are 8320 kWh versus 8254 kWh a year earlier (+0.8% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "confidence": "High",
+        "status": "normal",
+        "estimated_total": 7702.88,
+        "unexplained_kwh": 617.12,
+        "unexplained_pct": 7.42,
+        "yoy_pct": 0.8,
+        "rolling_z": -1,
+        "estimated_by_category": {
+          "pump": 1370.2,
+          "lift": 1255.5,
+          "water_treatment": 306.9,
+          "stp": 3100,
+          "lighting": 1670.28
+        },
+        "month": "2025-08"
+      },
+      {
+        "reasons": [
+          "Unexplained share is 6.8% of billed units; the previous 6 months averaged 9.0% (sd 1.67 pp, floor 0.75 pp), giving rolling z = -1.3 (alert threshold 3.0).",
+          "Billed units are 7995 kWh versus 8051 kWh a year earlier (-0.7% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "actual_units": 7995,
+        "estimated_total": 7454.4,
+        "yoy_pct": -0.7,
+        "status": "normal",
+        "rolling_z": -1.32,
+        "unexplained_pct": 6.76,
+        "estimated_by_category": {
+          "lift": 1215,
+          "water_treatment": 297,
+          "stp": 3000,
+          "lighting": 1616.4,
+          "pump": 1326
+        },
+        "confidence": "High",
+        "unexplained_kwh": 540.6,
+        "month": "2025-09"
+      },
+      {
+        "status": "normal",
+        "confidence": "High",
+        "reasons": [
+          "Unexplained share is 9.1% of billed units; the previous 6 months averaged 8.5% (sd 1.82 pp, floor 0.75 pp), giving rolling z = 0.4 (alert threshold 3.0).",
+          "Billed units are 8477 kWh versus 8427 kWh a year earlier (+0.6% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "yoy_pct": 0.59,
+        "month": "2025-10",
+        "unexplained_kwh": 774.12,
+        "estimated_by_category": {
+          "lift": 1255.5,
+          "stp": 3100,
+          "pump": 1370.2,
+          "lighting": 1670.28,
+          "water_treatment": 306.9
+        },
+        "estimated_total": 7702.88,
+        "actual_units": 8477,
+        "rolling_z": 0.37,
+        "unexplained_pct": 9.13
+      },
+      {
+        "estimated_total": 7519.06,
+        "month": "2025-11",
+        "unexplained_kwh": 727.94,
+        "actual_units": 8247,
+        "rolling_z": 0.29,
+        "yoy_pct": 2.28,
+        "reasons": [
+          "Unexplained share is 8.8% of billed units; the previous 6 months averaged 8.3% (sd 1.72 pp, floor 0.75 pp), giving rolling z = 0.3 (alert threshold 3.0).",
+          "Billed units are 8247 kWh versus 8063 kWh a year earlier (+2.3% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "status": "normal",
+        "estimated_by_category": {
+          "stp": 3000,
+          "lift": 1215,
+          "pump": 1326,
+          "water_treatment": 297,
+          "lighting": 1681.06
+        },
+        "unexplained_pct": 8.83,
+        "confidence": "High"
+      },
+      {
+        "estimated_total": 7769.69,
+        "month": "2025-12",
+        "estimated_by_category": {
+          "pump": 1370.2,
+          "water_treatment": 306.9,
+          "lighting": 1737.09,
+          "lift": 1255.5,
+          "stp": 3100
+        },
+        "unexplained_kwh": 646.31,
+        "confidence": "High",
+        "status": "normal",
+        "actual_units": 8416,
+        "reasons": [
+          "Unexplained share is 7.7% of billed units; the previous 6 months averaged 8.0% (sd 1.31 pp, floor 0.75 pp), giving rolling z = -0.3 (alert threshold 3.0).",
+          "Billed units are 8416 kWh versus 8463 kWh a year earlier (-0.6% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_pct": 7.68,
+        "rolling_z": -0.25,
+        "yoy_pct": -0.56
+      },
+      {
+        "rolling_z": -0.64,
+        "yoy_pct": -0.02,
+        "unexplained_kwh": 585.31,
+        "reasons": [
+          "Unexplained share is 7.0% of billed units; the previous 6 months averaged 7.7% (sd 1.09 pp, floor 0.75 pp), giving rolling z = -0.6 (alert threshold 3.0).",
+          "Billed units are 8355 kWh versus 8357 kWh a year earlier (-0.0% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "month": "2026-01",
+        "estimated_by_category": {
+          "lift": 1255.5,
+          "stp": 3100,
+          "pump": 1370.2,
+          "water_treatment": 306.9,
+          "lighting": 1737.09
+        },
+        "unexplained_pct": 7.01,
+        "actual_units": 8355,
+        "estimated_total": 7769.69,
+        "confidence": "High",
+        "status": "normal"
+      },
+      {
+        "estimated_total": 7017.79,
+        "actual_units": 7735,
+        "unexplained_kwh": 717.21,
+        "estimated_by_category": {
+          "pump": 1237.6,
+          "stp": 2800,
+          "lift": 1134,
+          "water_treatment": 277.2,
+          "lighting": 1568.99
+        },
+        "yoy_pct": 1.63,
+        "confidence": "High",
+        "month": "2026-02",
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 9.3% of billed units; the previous 6 months averaged 7.8% (sd 0.97 pp, floor 0.75 pp), giving rolling z = 1.5 (alert threshold 3.0).",
+          "Billed units are 7735 kWh versus 7611 kWh a year earlier (+1.6% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "unexplained_pct": 9.27,
+        "rolling_z": 1.51
+      },
+      {
+        "unexplained_pct": 15.49,
+        "month": "2026-03",
+        "status": "alert",
+        "confidence": "Medium",
+        "estimated_total": 7958.78,
+        "actual_units": 9418,
+        "unexplained_kwh": 1459.22,
+        "reasons": [
+          "Unexplained share is 15.5% of billed units; the previous 6 months averaged 8.1% (sd 1.11 pp, floor 0.75 pp), giving rolling z = 6.7 (alert threshold 3.0).",
+          "Billed units are 9418 kWh versus 8823 kWh a year earlier (+6.7% year over year; alert threshold 5.0%).",
+          "Alert: both the year-over-year rise and the unexplained-share spike exceed their thresholds."
+        ],
+        "estimated_by_category": {
+          "lighting": 1603.47,
+          "pump": 1507.22,
+          "water_treatment": 337.59,
+          "lift": 1255.5,
+          "stp": 3255
+        },
+        "yoy_pct": 6.74,
+        "rolling_z": 6.66
+      },
+      {
+        "unexplained_pct": 10.11,
+        "rolling_z": 0.18,
+        "yoy_pct": 0.18,
+        "month": "2026-04",
+        "actual_units": 8568,
+        "status": "normal",
+        "reasons": [
+          "Unexplained share is 10.1% of billed units; the previous 6 months averaged 9.6% (sd 3.04 pp, floor 0.75 pp), giving rolling z = 0.2 (alert threshold 3.0).",
+          "Billed units are 8568 kWh versus 8553 kWh a year earlier (+0.2% year over year; alert threshold 5.0%).",
+          "Normal: no threshold combination is met."
+        ],
+        "estimated_total": 7702.04,
+        "unexplained_kwh": 865.96,
+        "estimated_by_category": {
+          "lift": 1215,
+          "lighting": 1551.74,
+          "stp": 3150,
+          "pump": 1458.6,
+          "water_treatment": 326.7
+        },
+        "confidence": "Medium"
+      }
+    ],
+    "post_fix": {
+      "following_month": "2026-04",
+      "p1_avg_daily_hours_alert_month": 8.242,
+      "monthly_saving_kwh": 614.6,
+      "monthly_saving_inr": 6029,
+      "marginal_inr_per_kwh": 9.81,
+      "following_month_yoy_pct": 0.18,
+      "hours_drop_per_day": 3.725,
+      "note": "Saving is derived only from the P1 pump log (nameplate kW, days of the following month).",
+      "p1_avg_daily_hours_following_month": 4.517,
+      "alert_month": "2026-03",
+      "available": true
+    },
+    "alerts": [
+      {
+        "bill_excess_vs_last_year_kwh": 595,
+        "insufficient_evidence": null,
+        "attribution_coverage": 1.106,
+        "actual_units": 9418,
+        "pump_excess_kwh": 658,
+        "recommended_actions": [
+          {
+            "action": "Inspect and replace the pump pressure switch and controller relay",
+            "owner": "electrician",
+            "step": 1,
+            "expected_monthly_saving": {
+              "kwh": 658,
+              "inr": 6455
+            }
+          },
+          {
+            "action": "Check tanks and pipes for leakage or overflow",
+            "step": 2,
+            "owner": "plumber"
+          },
+          {
+            "step": 3,
+            "action": "Install a sub-meter on the pump (measure instead of estimate)"
+          },
+          {
+            "action": "Compare next month: success means P1 average daily hours within 10% of the reference and bill year-over-year within +/-5%",
+            "step": 4,
+            "success_criteria": {
+              "p1_reference_avg_daily_hours": 4.38,
+              "p1_target_range_h_per_day": [
+                3.94,
+                4.82
+              ],
+              "bill_yoy_band_pct": 5,
+              "p1_avg_daily_hours_within_pct_of_reference": 10
+            }
+          }
+        ],
+        "excess_cost_inr": 6454.8,
+        "coverage_label": "explains most of the increase",
+        "expected_monthly_saving": {
+          "inr": 6455,
+          "kwh": 658
+        },
+        "reference_month": "2025-03",
+        "hypotheses": [
+          {
+            "evidence": [
+              "P1: 119 of 124 logged cycles in 2026-03 (96.0%) had pressure_switch_status other than OK (threshold 50%).",
+              "Status counts in 2026-03: CHATTERING: 26, OK: 5, STUCK_CLOSED: 93.",
+              "P1 average daily runtime: 4.38 h in 2025-03 versus 8.24 h in 2026-03 (ratio 1.88, +3.86 h/day)."
+            ],
+            "pump": "P1",
+            "hypothesis": "Pressure switch likely faulty or stuck",
+            "confidence": "high"
+          },
+          {
+            "hypothesis": "Pump restarting at a high tank level: check float/level controller, leakage, overflow",
+            "confidence": "medium",
+            "pump": "P1",
+            "evidence": [
+              "P1 average tank level at pump start rose from 32.8% in 2025-03 to 64.8% in 2026-03 (+32.0 points; threshold 15).",
+              "P1 average daily runtime: 4.38 h in 2025-03 versus 8.24 h in 2026-03 (ratio 1.88, +3.86 h/day)."
+            ]
+          }
+        ],
+        "marginal_inr_per_kwh": 9.81,
+        "month": "2026-03",
+        "attribution_evidence": {
+          "reference_month": "2025-03",
+          "pumps": {
+            "P3": {
+              "reference_month": {
+                "month": "2025-03",
+                "avg_daily_h": 6.475,
+                "total_runtime_h": 200.717,
+                "cycles": 123
+              },
+              "alert_month": {
+                "avg_daily_h": 6.384,
+                "cycles": 125,
+                "total_runtime_h": 197.9,
+                "month": "2026-03"
+              },
+              "runtime_ratio": 0.986,
+              "abnormal": false,
+              "excess_kwh": null,
+              "delta_h_per_day": -0.091
+            },
+            "P1": {
+              "excess_kwh": 658,
+              "runtime_ratio": 1.881,
+              "delta_h_per_day": 3.859,
+              "abnormal": true,
+              "alert_month": {
+                "month": "2026-03",
+                "switch_not_ok_cycles": 119,
+                "status_counts": {
+                  "OK": 5,
+                  "CHATTERING": 26,
+                  "STUCK_CLOSED": 93
+                },
+                "cycles": 124,
+                "total_runtime_h": 255.5,
+                "switch_not_ok_share": 0.96,
+                "avg_tank_start_pct": 64.79,
+                "avg_daily_h": 8.242
+              },
+              "reference_month": {
+                "status_counts": {
+                  "OK": 77
+                },
+                "month": "2025-03",
+                "total_runtime_h": 135.867,
+                "switch_not_ok_share": 0,
+                "avg_daily_h": 4.383,
+                "avg_tank_start_pct": 32.818,
+                "switch_not_ok_cycles": 0,
+                "cycles": 77
+              }
+            }
+          }
+        }
+      }
+    ],
+    "dg_summary": {
+      "last_12_months": [
+        "2025-05",
+        "2026-04"
+      ],
+      "last_12_months_total_cost_inr": 91444.5,
+      "monthly": [
+        {
+          "cost_inr": 10533.6,
+          "month": "2024-04",
+          "run_hours": 7.04,
+          "events": 3
+        },
+        {
+          "cost_inr": 9756.9,
+          "run_hours": 5.89,
+          "month": "2024-05",
+          "events": 6
+        },
+        {
+          "cost_inr": 6982.2,
+          "events": 2,
+          "month": "2024-06",
+          "run_hours": 4.37
+        },
+        {
+          "month": "2024-07",
+          "run_hours": 14.7,
+          "events": 7,
+          "cost_inr": 23205.6
+        },
+        {
+          "events": 3,
+          "month": "2024-08",
+          "run_hours": 3.69,
+          "cost_inr": 6078.6
+        },
+        {
+          "events": 1,
+          "cost_inr": 763.2,
+          "month": "2024-09",
+          "run_hours": 0.5
+        },
+        {
+          "month": "2024-10",
+          "run_hours": 5.94,
+          "cost_inr": 9701.1,
+          "events": 4
+        },
+        {
+          "cost_inr": 7848,
+          "month": "2024-11",
+          "run_hours": 5.05,
+          "events": 3
+        },
+        {
+          "month": "2024-12",
+          "cost_inr": 785.7,
+          "events": 1,
+          "run_hours": 0.5
+        },
+        {
+          "month": "2025-01",
+          "cost_inr": 11835.9,
+          "run_hours": 7.48,
+          "events": 4
+        },
+        {
+          "run_hours": 3.4,
+          "events": 2,
+          "cost_inr": 5293.8,
+          "month": "2025-02"
+        },
+        {
+          "month": "2025-03",
+          "cost_inr": 13710.6,
+          "run_hours": 8.01,
+          "events": 3
+        },
+        {
+          "cost_inr": 23391.9,
+          "run_hours": 14.2,
+          "events": 5,
+          "month": "2025-04"
+        },
+        {
+          "cost_inr": 8053.2,
+          "events": 3,
+          "run_hours": 5.03,
+          "month": "2025-05"
+        },
+        {
+          "cost_inr": 11685.6,
+          "run_hours": 7.12,
+          "month": "2025-06",
+          "events": 4
+        },
+        {
+          "run_hours": 2.01,
+          "cost_inr": 3251.7,
+          "events": 3,
+          "month": "2025-07"
+        },
+        {
+          "run_hours": 18,
+          "events": 9,
+          "cost_inr": 28931.4,
+          "month": "2025-08"
+        },
+        {
+          "events": 2,
+          "month": "2025-09",
+          "run_hours": 1.55,
+          "cost_inr": 2680.2
+        },
+        {
+          "month": "2025-10",
+          "run_hours": 4.98,
+          "cost_inr": 8000.1,
+          "events": 3
+        },
+        {
+          "events": 4,
+          "cost_inr": 8439.3,
+          "month": "2025-11",
+          "run_hours": 5.17
+        },
+        {
+          "run_hours": 2.54,
+          "month": "2025-12",
+          "events": 2,
+          "cost_inr": 4235.4
+        },
+        {
+          "run_hours": 3.25,
+          "cost_inr": 5691.6,
+          "month": "2026-01",
+          "events": 2
+        },
+        {
+          "run_hours": 5.33,
+          "cost_inr": 8831.7,
+          "month": "2026-02",
+          "events": 4
+        },
+        {
+          "month": "2026-03",
+          "run_hours": 0.5,
+          "cost_inr": 805.5,
+          "events": 1
+        },
+        {
+          "cost_inr": 838.8,
+          "run_hours": 0.5,
+          "month": "2026-04",
+          "events": 1
+        }
+      ],
+      "last_12_months_total_run_hours": 55.98,
+      "note": "Diesel generator cost is separate from BESCOM units and is not subtracted from them."
+    },
+    "tariff_whatif": {
+      "extra_cost_latest_month_inr": 9450,
+      "stp_residential_common_rate": 8,
+      "stp_commercial_rate": 11,
+      "stp_estimated_kwh_latest_month": 3150,
+      "latest_month": "2026-04",
+      "rate_difference_inr_per_kwh": 3,
+      "statement": "Rates are placeholders, not actual BESCOM tariff-order values.",
+      "last_12_months": [
+        "2025-05",
+        "2026-04"
+      ],
+      "extra_cost_last_12_months_inr": 110880,
+      "stp_estimated_kwh_last_12_months": 36960,
+      "tariff_file_note": "placeholder rates, replace with actual BESCOM tariff-order values"
+    },
+    "agm_facts_labels": {
+      "alert_rolling_z": "Rolling z-score of unexplained share, alert month",
+      "tariff_whatif_extra_latest_month_inr": "Placeholder tariff what-if: extra STP cost, latest month, INR",
+      "p1_alert_avg_daily_hours": "P1 average daily runtime, alert month, h/day",
+      "p1_delta_hours_per_day": "P1 extra runtime versus reference, h/day",
+      "latest_month_unexplained_kwh": "Unexplained consumption, latest month, kWh",
+      "stp_estimated_kwh_last_12_months": "STP estimated consumption, last 12 months, kWh",
+      "attribution_coverage_pct": "Share of the bill increase explained by pump excess, %",
+      "p1_runtime_ratio": "P1 runtime ratio, alert month versus reference (2 decimals)",
+      "p1_reference_tank_start_pct": "P1 average tank level at pump start, reference month, %",
+      "post_fix_saving_kwh": "Monthly saving after the fix, from the pump log, kWh",
+      "marginal_inr_per_kwh": "Marginal cost per kWh incl. tax, INR (2 decimals)",
+      "latest_month_actual_units_kwh": "Billed units, latest month (2026-04), kWh",
+      "post_fix_saving_inr": "Monthly saving after the fix, from the pump log, INR",
+      "following_month_yoy_pct": "Year-over-year change in billed units, month after alert, %",
+      "p1_reference_avg_daily_hours": "P1 average daily runtime, reference month, h/day",
+      "p1_switch_not_ok_pct": "P1 cycles with pressure switch status not OK, alert month, %",
+      "stp_estimated_kwh_latest_month": "STP estimated consumption, latest month, kWh",
+      "p1_following_avg_daily_hours": "P1 average daily runtime, month after alert (2026-04), h/day",
+      "alert_last_year_units_kwh": "Billed units in the same month a year earlier, kWh",
+      "bill_excess_vs_last_year_kwh": "Bill increase versus same month last year, kWh",
+      "p1_alert_tank_start_pct": "P1 average tank level at pump start, alert month, %",
+      "dg_cost_last_12_months_inr": "Diesel generator cost, last 12 months, INR (separate from BESCOM)",
+      "opportunity_lt_stairs_illustrative_saving_kwh": "Staircase LED fixtures: illustrative saving at 40%, kWh (illustrative, validate with a sub-meter)",
+      "alert_yoy_pct": "Year-over-year change in billed units, alert month, %",
+      "pump_excess_kwh": "Estimated excess pump consumption, nameplate kW, kWh",
+      "excess_cost_inr": "Cost of the excess pump consumption, INR",
+      "dg_cost_latest_month_inr": "Diesel generator cost, latest month, INR (separate from BESCOM)",
+      "alert_unexplained_pct": "Unexplained share of billed units, alert month, %",
+      "alert_actual_units_kwh": "Billed units in alert month (2026-03), kWh",
+      "latest_month_unexplained_pct": "Unexplained share of billed units, latest month, %",
+      "opportunity_lt_stairs_monthly_kwh": "Staircase LED fixtures: monthly consumption, kWh",
+      "tariff_whatif_extra_last_12_months_inr": "Placeholder tariff what-if: extra STP cost, last 12 months, INR",
+      "latest_month_estimated_total_kwh": "Estimated consumption by equipment, latest month, kWh"
+    },
+    "agm_facts": {
+      "p1_following_avg_daily_hours": 4.5,
+      "alert_unexplained_pct": 15.5,
+      "latest_month_unexplained_kwh": 866,
+      "post_fix_saving_kwh": 615,
+      "following_month_yoy_pct": 0.2,
+      "stp_estimated_kwh_latest_month": 3150,
+      "tariff_whatif_extra_latest_month_inr": 9450,
+      "p1_reference_tank_start_pct": 32.8,
+      "opportunity_lt_stairs_monthly_kwh": 280,
+      "pump_excess_kwh": 658,
+      "dg_cost_last_12_months_inr": 91444,
+      "latest_month_actual_units_kwh": 8568,
+      "latest_month_unexplained_pct": 10.1,
+      "alert_rolling_z": 6.7,
+      "latest_month_estimated_total_kwh": 7702,
+      "opportunity_lt_stairs_illustrative_saving_kwh": 112,
+      "stp_estimated_kwh_last_12_months": 36960,
+      "p1_alert_avg_daily_hours": 8.2,
+      "tariff_whatif_extra_last_12_months_inr": 110880,
+      "p1_reference_avg_daily_hours": 4.4,
+      "bill_excess_vs_last_year_kwh": 595,
+      "dg_cost_latest_month_inr": 839,
+      "p1_delta_hours_per_day": 3.9,
+      "attribution_coverage_pct": 110.6,
+      "excess_cost_inr": 6455,
+      "alert_actual_units_kwh": 9418,
+      "post_fix_saving_inr": 6029,
+      "p1_switch_not_ok_pct": 96,
+      "p1_runtime_ratio": 1.88,
+      "alert_yoy_pct": 6.7,
+      "alert_last_year_units_kwh": 8823,
+      "marginal_inr_per_kwh": 9.81,
+      "p1_alert_tank_start_pct": 64.8
+    },
+    "opportunities": [
+      {
+        "illustrative_saving_kwh": 112,
+        "assumed_saving_fraction": 0.4,
+        "monthly_kwh": 279.9,
+        "illustrative_saving_inr": 1098.5,
+        "suggestion": "Fixtures are switched manually; consider timer or sensor control.",
+        "name": "Staircase LED fixtures",
+        "type": "lighting_control",
+        "equipment_id": "LT_STAIRS",
+        "location": "Staircases",
+        "month": "2026-04",
+        "label": "illustrative, validate with a sub-meter"
+      }
+    ]
+  },
+  "summary": {
+    "model_id": "apac.amazon.nova-micro-v1:0",
+    "text": "The committee reviewed the common-area electricity analysis. Alert period: 2026-03. Runtime reference period: 2025-03. Electricity billed changed by 6.7% compared with the same month a year earlier. The leading assessment is Pressure switch likely faulty or stuck (evidence confidence: high). This is an evidence-based hypothesis rather than proof of a confirmed fault, and the stated confidence should guide any decision. Recommended next steps are Inspect and replace the pump pressure switch and controller relay; Check tanks and pipes for leakage or overflow; Install a sub-meter on the pump (measure instead of estimate). Estimated excess pump use is 658 kWh, with a potential monthly saving of \u20b96,455 if that excess is removed. The committee should confirm the diagnosis before committing expenditure and compare subsequent bills and logged operation after any repair. Differences between estimated equipment consumption and billed units also need continued investigation. These figures are estimates from synthetic data in this demo. Actual savings depend on measured operation and successful corrective work; they are not guaranteed.",
+    "source": "bedrock",
+    "validator": {
+      "attempts": [
+        {
+          "reason": "accepted",
+          "valid": true,
+          "attempt": 1
+        }
+      ],
+      "outcome": "accepted"
+    },
+    "result_hash": "f6b1430f704c106f5df4a96202e7cf44fe3868fea79f3048a2fa2dc56297ebba",
+    "created_at": "2026-10-11T13:24:29.535796+00:00"
+  }
+}

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'">
+<title>Watt &amp; Where — AGM report</title>
+<style>
+body { max-width: 1000px; margin: 40px auto; padding: 0 20px;
+        color: #172b3a; font: 16px/1.6 system-ui, sans-serif; }
+h1, h2 { line-height: 1.2; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+th, td { border: 1px solid #cbd5df; padding: 9px; text-align: left; }
+th { background: #edf3f7; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f5f7fa;
+       padding: 16px; font-size: 13px; }
+.summary { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Watt &amp; Where</h1>
+<p>Sunrise Heights · Synthetic-data demonstration</p>
+
+<h2>AGM summary</h2>
+<p class="summary">The committee reviewed the common-area electricity analysis. Alert period: 2026-03. Runtime reference period: 2025-03. Electricity billed changed by 6.7% compared with the same month a year earlier. The leading assessment is Pressure switch likely faulty or stuck (evidence confidence: high). This is an evidence-based hypothesis rather than proof of a confirmed fault, and the stated confidence should guide any decision. Recommended next steps are Inspect and replace the pump pressure switch and controller relay; Check tanks and pipes for leakage or overflow; Install a sub-meter on the pump (measure instead of estimate). Estimated excess pump use is 658 kWh, with a potential monthly saving of ₹6,455 if that excess is removed. The committee should confirm the diagnosis before committing expenditure and compare subsequent bills and logged operation after any repair. Differences between estimated equipment consumption and billed units also need continued investigation. These figures are estimates from synthetic data in this demo. Actual savings depend on measured operation and successful corrective work; they are not guaranteed.</p>
+<p>Summary source: bedrock</p>
+
+<h2>Monthly bill chart data</h2>
+<table>
+<thead><tr><th>Month</th><th>Billed kWh</th><th>Estimated kWh</th>
+<th>Unexplained %</th><th>Status</th></tr></thead>
+<tbody><tr><td>2024-04</td><td>8549</td><td>7702.04</td><td>9.91</td><td>normal</td></tr><tr><td>2024-05</td><td>8711</td><td>7958.78</td><td>8.64</td><td>normal</td></tr><tr><td>2024-06</td><td>8027</td><td>7389.74</td><td>7.94</td><td>normal</td></tr><tr><td>2024-07</td><td>8209</td><td>7702.88</td><td>6.17</td><td>normal</td></tr><tr><td>2024-08</td><td>8254</td><td>7702.88</td><td>6.68</td><td>normal</td></tr><tr><td>2024-09</td><td>8051</td><td>7454.4</td><td>7.41</td><td>normal</td></tr><tr><td>2024-10</td><td>8427</td><td>7702.88</td><td>8.59</td><td>normal</td></tr><tr><td>2024-11</td><td>8063</td><td>7519.06</td><td>6.75</td><td>normal</td></tr><tr><td>2024-12</td><td>8463</td><td>7769.69</td><td>8.19</td><td>normal</td></tr><tr><td>2025-01</td><td>8357</td><td>7769.69</td><td>7.03</td><td>normal</td></tr><tr><td>2025-02</td><td>7611</td><td>7017.79</td><td>7.79</td><td>normal</td></tr><tr><td>2025-03</td><td>8823</td><td>7958.78</td><td>9.8</td><td>normal</td></tr><tr><td>2025-04</td><td>8553</td><td>7702.04</td><td>9.95</td><td>normal</td></tr><tr><td>2025-05</td><td>8916</td><td>7958.78</td><td>10.74</td><td>normal</td></tr><tr><td>2025-06</td><td>8166</td><td>7389.74</td><td>9.51</td><td>normal</td></tr><tr><td>2025-07</td><td>8231</td><td>7702.88</td><td>6.42</td><td>normal</td></tr><tr><td>2025-08</td><td>8320</td><td>7702.88</td><td>7.42</td><td>normal</td></tr><tr><td>2025-09</td><td>7995</td><td>7454.4</td><td>6.76</td><td>normal</td></tr><tr><td>2025-10</td><td>8477</td><td>7702.88</td><td>9.13</td><td>normal</td></tr><tr><td>2025-11</td><td>8247</td><td>7519.06</td><td>8.83</td><td>normal</td></tr><tr><td>2025-12</td><td>8416</td><td>7769.69</td><td>7.68</td><td>normal</td></tr><tr><td>2026-01</td><td>8355</td><td>7769.69</td><td>7.01</td><td>normal</td></tr><tr><td>2026-02</td><td>7735</td><td>7017.79</td><td>9.27</td><td>normal</td></tr><tr><td>2026-03</td><td>9418</td><td>7958.78</td><td>15.49</td><td>alert</td></tr><tr><td>2026-04</td><td>8568</td><td>7702.04</td><td>10.11</td><td>normal</td></tr></tbody>
+</table>
+
+<h2>Estimated equipment split — 2026-04</h2>
+<table><thead><tr><th>Category</th><th>kWh</th></tr></thead>
+<tbody><tr><td>lift</td><td>1215</td></tr><tr><td>lighting</td><td>1551.74</td></tr><tr><td>stp</td><td>3150</td></tr><tr><td>pump</td><td>1458.6</td></tr><tr><td>water_treatment</td><td>326.7</td></tr></tbody></table>
+
+<section><h2>Alerts, evidence and recommendations</h2><pre>[
+  {
+    &quot;month&quot;: &quot;2026-03&quot;,
+    &quot;hypotheses&quot;: [
+      {
+        &quot;evidence&quot;: [
+          &quot;P1: 119 of 124 logged cycles in 2026-03 (96.0%) had pressure_switch_status other than OK (threshold 50%).&quot;,
+          &quot;Status counts in 2026-03: CHATTERING: 26, OK: 5, STUCK_CLOSED: 93.&quot;,
+          &quot;P1 average daily runtime: 4.38 h in 2025-03 versus 8.24 h in 2026-03 (ratio 1.88, +3.86 h/day).&quot;
+        ],
+        &quot;pump&quot;: &quot;P1&quot;,
+        &quot;hypothesis&quot;: &quot;Pressure switch likely faulty or stuck&quot;,
+        &quot;confidence&quot;: &quot;high&quot;
+      },
+      {
+        &quot;hypothesis&quot;: &quot;Pump restarting at a high tank level: check float/level controller, leakage, overflow&quot;,
+        &quot;confidence&quot;: &quot;medium&quot;,
+        &quot;pump&quot;: &quot;P1&quot;,
+        &quot;evidence&quot;: [
+          &quot;P1 average tank level at pump start rose from 32.8% in 2025-03 to 64.8% in 2026-03 (+32.0 points; threshold 15).&quot;,
+          &quot;P1 average daily runtime: 4.38 h in 2025-03 versus 8.24 h in 2026-03 (ratio 1.88, +3.86 h/day).&quot;
+        ]
+      }
+    ],
+    &quot;evidence&quot;: {
+      &quot;reference_month&quot;: &quot;2025-03&quot;,
+      &quot;pumps&quot;: {
+        &quot;P3&quot;: {
+          &quot;reference_month&quot;: {
+            &quot;month&quot;: &quot;2025-03&quot;,
+            &quot;avg_daily_h&quot;: 6.475,
+            &quot;total_runtime_h&quot;: 200.717,
+            &quot;cycles&quot;: 123
+          },
+          &quot;alert_month&quot;: {
+            &quot;avg_daily_h&quot;: 6.384,
+            &quot;cycles&quot;: 125,
+            &quot;total_runtime_h&quot;: 197.9,
+            &quot;month&quot;: &quot;2026-03&quot;
+          },
+          &quot;runtime_ratio&quot;: 0.986,
+          &quot;abnormal&quot;: false,
+          &quot;excess_kwh&quot;: null,
+          &quot;delta_h_per_day&quot;: -0.091
+        },
+        &quot;P1&quot;: {
+          &quot;excess_kwh&quot;: 658,
+          &quot;runtime_ratio&quot;: 1.881,
+          &quot;delta_h_per_day&quot;: 3.859,
+          &quot;abnormal&quot;: true,
+          &quot;alert_month&quot;: {
+            &quot;month&quot;: &quot;2026-03&quot;,
+            &quot;switch_not_ok_cycles&quot;: 119,
+            &quot;status_counts&quot;: {
+              &quot;OK&quot;: 5,
+              &quot;CHATTERING&quot;: 26,
+              &quot;STUCK_CLOSED&quot;: 93
+            },
+            &quot;cycles&quot;: 124,
+            &quot;total_runtime_h&quot;: 255.5,
+            &quot;switch_not_ok_share&quot;: 0.96,
+            &quot;avg_tank_start_pct&quot;: 64.79,
+            &quot;avg_daily_h&quot;: 8.242
+          },
+          &quot;reference_month&quot;: {
+            &quot;status_counts&quot;: {
+              &quot;OK&quot;: 77
+            },
+            &quot;month&quot;: &quot;2025-03&quot;,
+            &quot;total_runtime_h&quot;: 135.867,
+            &quot;switch_not_ok_share&quot;: 0,
+            &quot;avg_daily_h&quot;: 4.383,
+            &quot;avg_tank_start_pct&quot;: 32.818,
+            &quot;switch_not_ok_cycles&quot;: 0,
+            &quot;cycles&quot;: 77
+          }
+        }
+      }
+    },
+    &quot;recommended_actions&quot;: [
+      {
+        &quot;action&quot;: &quot;Inspect and replace the pump pressure switch and controller relay&quot;,
+        &quot;owner&quot;: &quot;electrician&quot;,
+        &quot;step&quot;: 1,
+        &quot;expected_monthly_saving&quot;: {
+          &quot;kwh&quot;: 658,
+          &quot;inr&quot;: 6455
+        }
+      },
+      {
+        &quot;action&quot;: &quot;Check tanks and pipes for leakage or overflow&quot;,
+        &quot;step&quot;: 2,
+        &quot;owner&quot;: &quot;plumber&quot;
+      },
+      {
+        &quot;step&quot;: 3,
+        &quot;action&quot;: &quot;Install a sub-meter on the pump (measure instead of estimate)&quot;
+      },
+      {
+        &quot;action&quot;: &quot;Compare next month: success means P1 average daily hours within 10% of the reference and bill year-over-year within +/-5%&quot;,
+        &quot;step&quot;: 4,
+        &quot;success_criteria&quot;: {
+          &quot;p1_reference_avg_daily_hours&quot;: 4.38,
+          &quot;p1_target_range_h_per_day&quot;: [
+            3.94,
+            4.82
+          ],
+          &quot;bill_yoy_band_pct&quot;: 5,
+          &quot;p1_avg_daily_hours_within_pct_of_reference&quot;: 10
+        }
+      }
+    ],
+    &quot;expected_monthly_saving&quot;: {
+      &quot;inr&quot;: 6455,
+      &quot;kwh&quot;: 658
+    },
+    &quot;insufficient_evidence&quot;: null
+  }
+]</pre></section>
+<section><h2>Other opportunities</h2><pre>[
+  {
+    &quot;illustrative_saving_kwh&quot;: 112,
+    &quot;assumed_saving_fraction&quot;: 0.4,
+    &quot;monthly_kwh&quot;: 279.9,
+    &quot;illustrative_saving_inr&quot;: 1098.5,
+    &quot;suggestion&quot;: &quot;Fixtures are switched manually; consider timer or sensor control.&quot;,
+    &quot;name&quot;: &quot;Staircase LED fixtures&quot;,
+    &quot;type&quot;: &quot;lighting_control&quot;,
+    &quot;equipment_id&quot;: &quot;LT_STAIRS&quot;,
+    &quot;location&quot;: &quot;Staircases&quot;,
+    &quot;month&quot;: &quot;2026-04&quot;,
+    &quot;label&quot;: &quot;illustrative, validate with a sub-meter&quot;
+  }
+]</pre></section>
+<section><h2>Tariff assumptions</h2><pre>{
+  &quot;extra_cost_latest_month_inr&quot;: 9450,
+  &quot;stp_residential_common_rate&quot;: 8,
+  &quot;stp_commercial_rate&quot;: 11,
+  &quot;stp_estimated_kwh_latest_month&quot;: 3150,
+  &quot;latest_month&quot;: &quot;2026-04&quot;,
+  &quot;rate_difference_inr_per_kwh&quot;: 3,
+  &quot;statement&quot;: &quot;Rates are placeholders, not actual BESCOM tariff-order values.&quot;,
+  &quot;last_12_months&quot;: [
+    &quot;2025-05&quot;,
+    &quot;2026-04&quot;
+  ],
+  &quot;extra_cost_last_12_months_inr&quot;: 110880,
+  &quot;stp_estimated_kwh_last_12_months&quot;: 36960,
+  &quot;tariff_file_note&quot;: &quot;placeholder rates, replace with actual BESCOM tariff-order values&quot;
+}</pre></section>
+<section><h2>Post-fix comparison</h2><pre>{
+  &quot;following_month&quot;: &quot;2026-04&quot;,
+  &quot;p1_avg_daily_hours_alert_month&quot;: 8.242,
+  &quot;monthly_saving_kwh&quot;: 614.6,
+  &quot;monthly_saving_inr&quot;: 6029,
+  &quot;marginal_inr_per_kwh&quot;: 9.81,
+  &quot;following_month_yoy_pct&quot;: 0.18,
+  &quot;hours_drop_per_day&quot;: 3.725,
+  &quot;note&quot;: &quot;Saving is derived only from the P1 pump log (nameplate kW, days of the following month).&quot;,
+  &quot;p1_avg_daily_hours_following_month&quot;: 4.517,
+  &quot;alert_month&quot;: &quot;2026-03&quot;,
+  &quot;available&quot;: true
+}</pre></section>
+<section><h2>Diesel generator — separate from electricity units</h2><pre>{
+  &quot;last_12_months&quot;: [
+    &quot;2025-05&quot;,
+    &quot;2026-04&quot;
+  ],
+  &quot;last_12_months_total_cost_inr&quot;: 91444.5,
+  &quot;monthly&quot;: [
+    {
+      &quot;cost_inr&quot;: 10533.6,
+      &quot;month&quot;: &quot;2024-04&quot;,
+      &quot;run_hours&quot;: 7.04,
+      &quot;events&quot;: 3
+    },
+    {
+      &quot;cost_inr&quot;: 9756.9,
+      &quot;run_hours&quot;: 5.89,
+      &quot;month&quot;: &quot;2024-05&quot;,
+      &quot;events&quot;: 6
+    },
+    {
+      &quot;cost_inr&quot;: 6982.2,
+      &quot;events&quot;: 2,
+      &quot;month&quot;: &quot;2024-06&quot;,
+      &quot;run_hours&quot;: 4.37
+    },
+    {
+      &quot;month&quot;: &quot;2024-07&quot;,
+      &quot;run_hours&quot;: 14.7,
+      &quot;events&quot;: 7,
+      &quot;cost_inr&quot;: 23205.6
+    },
+    {
+      &quot;events&quot;: 3,
+      &quot;month&quot;: &quot;2024-08&quot;,
+      &quot;run_hours&quot;: 3.69,
+      &quot;cost_inr&quot;: 6078.6
+    },
+    {
+      &quot;events&quot;: 1,
+      &quot;cost_inr&quot;: 763.2,
+      &quot;month&quot;: &quot;2024-09&quot;,
+      &quot;run_hours&quot;: 0.5
+    },
+    {
+      &quot;month&quot;: &quot;2024-10&quot;,
+      &quot;run_hours&quot;: 5.94,
+      &quot;cost_inr&quot;: 9701.1,
+      &quot;events&quot;: 4
+    },
+    {
+      &quot;cost_inr&quot;: 7848,
+      &quot;month&quot;: &quot;2024-11&quot;,
+      &quot;run_hours&quot;: 5.05,
+      &quot;events&quot;: 3
+    },
+    {
+      &quot;month&quot;: &quot;2024-12&quot;,
+      &quot;cost_inr&quot;: 785.7,
+      &quot;events&quot;: 1,
+      &quot;run_hours&quot;: 0.5
+    },
+    {
+      &quot;month&quot;: &quot;2025-01&quot;,
+      &quot;cost_inr&quot;: 11835.9,
+      &quot;run_hours&quot;: 7.48,
+      &quot;events&quot;: 4
+    },
+    {
+      &quot;run_hours&quot;: 3.4,
+      &quot;events&quot;: 2,
+      &quot;cost_inr&quot;: 5293.8,
+      &quot;month&quot;: &quot;2025-02&quot;
+    },
+    {
+      &quot;month&quot;: &quot;2025-03&quot;,
+      &quot;cost_inr&quot;: 13710.6,
+      &quot;run_hours&quot;: 8.01,
+      &quot;events&quot;: 3
+    },
+    {
+      &quot;cost_inr&quot;: 23391.9,
+      &quot;run_hours&quot;: 14.2,
+      &quot;events&quot;: 5,
+      &quot;month&quot;: &quot;2025-04&quot;
+    },
+    {
+      &quot;cost_inr&quot;: 8053.2,
+      &quot;events&quot;: 3,
+      &quot;run_hours&quot;: 5.03,
+      &quot;month&quot;: &quot;2025-05&quot;
+    },
+    {
+      &quot;cost_inr&quot;: 11685.6,
+      &quot;run_hours&quot;: 7.12,
+      &quot;month&quot;: &quot;2025-06&quot;,
+      &quot;events&quot;: 4
+    },
+    {
+      &quot;run_hours&quot;: 2.01,
+      &quot;cost_inr&quot;: 3251.7,
+      &quot;events&quot;: 3,
+      &quot;month&quot;: &quot;2025-07&quot;
+    },
+    {
+      &quot;run_hours&quot;: 18,
+      &quot;events&quot;: 9,
+      &quot;cost_inr&quot;: 28931.4,
+      &quot;month&quot;: &quot;2025-08&quot;
+    },
+    {
+      &quot;events&quot;: 2,
+      &quot;month&quot;: &quot;2025-09&quot;,
+      &quot;run_hours&quot;: 1.55,
+      &quot;cost_inr&quot;: 2680.2
+    },
+    {
+      &quot;month&quot;: &quot;2025-10&quot;,
+      &quot;run_hours&quot;: 4.98,
+      &quot;cost_inr&quot;: 8000.1,
+      &quot;events&quot;: 3
+    },
+    {
+      &quot;events&quot;: 4,
+      &quot;cost_inr&quot;: 8439.3,
+      &quot;month&quot;: &quot;2025-11&quot;,
+      &quot;run_hours&quot;: 5.17
+    },
+    {
+      &quot;run_hours&quot;: 2.54,
+      &quot;month&quot;: &quot;2025-12&quot;,
+      &quot;events&quot;: 2,
+      &quot;cost_inr&quot;: 4235.4
+    },
+    {
+      &quot;run_hours&quot;: 3.25,
+      &quot;cost_inr&quot;: 5691.6,
+      &quot;month&quot;: &quot;2026-01&quot;,
+      &quot;events&quot;: 2
+    },
+    {
+      &quot;run_hours&quot;: 5.33,
+      &quot;cost_inr&quot;: 8831.7,
+      &quot;month&quot;: &quot;2026-02&quot;,
+      &quot;events&quot;: 4
+    },
+    {
+      &quot;month&quot;: &quot;2026-03&quot;,
+      &quot;run_hours&quot;: 0.5,
+      &quot;cost_inr&quot;: 805.5,
+      &quot;events&quot;: 1
+    },
+    {
+      &quot;cost_inr&quot;: 838.8,
+      &quot;run_hours&quot;: 0.5,
+      &quot;month&quot;: &quot;2026-04&quot;,
+      &quot;events&quot;: 1
+    }
+  ],
+  &quot;last_12_months_total_run_hours&quot;: 55.98,
+  &quot;note&quot;: &quot;Diesel generator cost is separate from BESCOM units and is not subtracted from them.&quot;
+}</pre></section>
+
+<p>Figures are estimates from synthetic data. Potential savings require
+verification through measured operation.</p>
+</body></html>
