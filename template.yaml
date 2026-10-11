@@ -1,0 +1,305 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Watt and Where serverless demo
+
+Parameters:
+  FrontendOrigin:
+    Type: String
+    Default: http://localhost:3000
+    AllowedPattern: '^https?://[^/]+$'
+    Description: Exact frontend origin, without a trailing slash
+
+  PandasLayerArn:
+    Type: String
+    Default: arn:aws:lambda:ap-south-1:336392948345:layer:AWSSDKPandas-Python312:31
+    AllowedPattern: '^arn:aws:lambda:ap-south-1:[0-9]{12}:layer:AWSSDKPandas-Python312:[0-9]+$'
+    Description: AWS SDK for pandas layer, Python 3.12, x86_64, ap-south-1
+
+  BedrockModelId:
+    Type: String
+    MinLength: 1
+    Description: Enabled Converse model ID or inference-profile ID/ARN; no default
+
+  BedrockInvokeArns:
+    Type: CommaDelimitedList
+    AllowedPattern: '^arn:aws:bedrock:[a-z0-9-]+:[0-9]{0,12}:(foundation-model|inference-profile|application-inference-profile)/[A-Za-z0-9._:/-]+$'
+    Description: Exact model ARN, or exact profile ARN plus all backing model ARNs; no wildcards
+
+Rules:
+  MumbaiOnly:
+    Assertions:
+      - Assert: !Equals [!Ref "AWS::Region", ap-south-1]
+        AssertDescription: Deploy this template in ap-south-1.
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Architectures: [x86_64]
+    CodeUri: src/
+    MemorySize: 512
+    Timeout: 30
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref Table
+        APARTMENT_ID: sunrise-heights
+        FRONTEND_ORIGIN: !Ref FrontendOrigin
+
+Resources:
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: WattWhere
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: apartment_id
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: apartment_id
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      SSESpecification:
+        SSEEnabled: true
+
+  ReportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireReports
+            Status: Enabled
+            Prefix: reports/
+            ExpirationInDays: 7
+
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: v1
+      EndpointConfiguration: REGIONAL
+      Cors:
+        AllowOrigin: !Sub "'${FrontendOrigin}'"
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Api-Key'"
+      Auth:
+        ApiKeyRequired: true
+        AddApiKeyRequiredToCorsPreflight: false
+        UsagePlan:
+          CreateUsagePlan: PER_API
+          Description: Demo usage plan
+          Throttle:
+            RateLimit: 5
+            BurstLimit: 10
+          Quota:
+            Limit: 1000
+            Period: DAY
+      MethodSettings:
+        - ResourcePath: "/*"
+          HttpMethod: "*"
+          ThrottlingRateLimit: 5
+          ThrottlingBurstLimit: 10
+        - ResourcePath: /~1summary~1generate
+          HttpMethod: POST
+          ThrottlingRateLimit: 0.1
+          ThrottlingBurstLimit: 1
+      GatewayResponses:
+        DEFAULT_4XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: !Sub "'${FrontendOrigin}'"
+              Access-Control-Allow-Headers: "'Content-Type,X-Api-Key'"
+              Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+          ResponseTemplates:
+            application/json: '{"error":{"code":"GATEWAY_ERROR","message":$context.error.messageString,"request_id":"$context.requestId"}}'
+        DEFAULT_5XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: !Sub "'${FrontendOrigin}'"
+              Access-Control-Allow-Headers: "'Content-Type,X-Api-Key'"
+              Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+          ResponseTemplates:
+            application/json: '{"error":{"code":"GATEWAY_ERROR","message":$context.error.messageString,"request_id":"$context.requestId"}}'
+
+  BillsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.bills
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: dynamodb:Query
+              Resource: !GetAtt Table.Arn
+      Events:
+        GetBills:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /bills
+            Method: get
+
+  AnalysisRunFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.analysis_run
+      Layers: [!Ref PandasLayerArn]
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:Query
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+      Events:
+        RunAnalysis:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /analysis/run
+            Method: post
+
+  AnalysisGetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.analysis_get
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: dynamodb:GetItem
+              Resource: !GetAtt Table.Arn
+      Events:
+        GetAnalysis:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /analysis
+            Method: get
+
+  SummaryGenerateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.summary_generate
+      Timeout: 60
+      Environment:
+        Variables:
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: !Ref BedrockInvokeArns
+      Events:
+        GenerateSummary:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /summary/generate
+            Method: post
+
+  SummaryGetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.summary_get
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: dynamodb:GetItem
+              Resource: !GetAtt Table.Arn
+      Events:
+        GetSummary:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /summary
+            Method: get
+
+  ReportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers.api.report_create
+      Environment:
+        Variables:
+          REPORT_BUCKET: !Ref ReportBucket
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:GetObject
+              Resource: !Sub "${ReportBucket.Arn}/reports/sunrise-heights/*"
+      Events:
+        CreateReport:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /report
+            Method: post
+
+  BillsLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${BillsFunction}"
+      RetentionInDays: 7
+
+  AnalysisRunLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AnalysisRunFunction}"
+      RetentionInDays: 7
+
+  AnalysisGetLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AnalysisGetFunction}"
+      RetentionInDays: 7
+
+  SummaryGenerateLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${SummaryGenerateFunction}"
+      RetentionInDays: 7
+
+  SummaryGetLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${SummaryGetFunction}"
+      RetentionInDays: 7
+
+  ReportLog:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${ReportFunction}"
+      RetentionInDays: 7
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.${AWS::URLSuffix}/v1"
+  ApiKeyId:
+    Value: !Ref ApiApiKey
+  TableName:
+    Value: !Ref Table
+  ReportBucketName:
+    Value: !Ref ReportBucket

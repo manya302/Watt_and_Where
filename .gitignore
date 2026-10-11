@@ -1,0 +1,43 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Environment files and local credentials
+.env
+.env.*
+!.env.example
+.aws/
+
+# Generated datasets and analysis
+data/
+output/
+
+# AWS SAM build artifacts and local deployment configuration
+.aws-sam/
+samconfig.toml
+samconfig.yaml
+packaged.yaml
+
+# Test coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Distribution artifacts
+build/
+dist/
+*.egg-info/
