@@ -84,8 +84,11 @@ The application is configured for GitHub Pages deployment through GitHub Actions
 The deployment workflow builds the frontend and publishes the generated static files to GitHub Pages.
 
 Testing admin password:
+
 Username: admin
-Password: wattadmin20206
+
+Password: wattadmin2026
+
 
 ## Purpose
 
