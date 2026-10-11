@@ -14,6 +14,7 @@ Watt & Where is a web-based electricity analytics dashboard designed to help use
 - **Appliance Management:** Manage appliance information through the admin interface.
 - **Accessible Interface:** Adjustable text sizes for improved readability.
 - **Demo Mode:** Load sample data from a static snapshot for demonstrations without requiring a live backend.
+- **Accessibility for Older Residents:** Adjustable text-size controls (A, A+, A++) make the dashboard easier to read for older residents in the apartment community and others who prefer larger text. This helps residents comfortably view electricity usage, bill trends, and recommendations.
 
 ## Architecture
 
@@ -81,6 +82,10 @@ The application is configured for GitHub Pages deployment through GitHub Actions
 **Live demo:** https://manya302.github.io/Watt_and_Where/
 
 The deployment workflow builds the frontend and publishes the generated static files to GitHub Pages.
+
+Testing admin password:
+Username: admin
+Password: wattadmin20206
 
 ## Purpose
 
