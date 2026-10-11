@@ -19,7 +19,7 @@ Watt & Where is a web-based electricity analytics dashboard designed to help use
 
 The application uses a React frontend built with Vite. Dashboard data is loaded through a dedicated API abstraction, allowing the frontend to work with the configured data source, including a static demo snapshot.
 
-![Watt & Where Architecture](architecture.png)
+![Watt & Where Architecture](Architecture.png)
 
 ## Technology Stack
 
