@@ -1,0 +1,8 @@
+event_id,date,equipment_id,issue,action_taken,cost_inr
+M001,2024-09-10,P3,Routine AMC service,"Bearings greased, seal replaced",3500
+M002,2024-12-17,LT_CORRIDOR,"Corridor timers failed, lights on 24h",Timers replaced,1800
+M003,2025-02-18,LIFT,Door sensor fault on one lift,Sensor replaced,6200
+M004,2025-06-20,STP_BLOWER,Belt and bearing wear,Belt and bearing replaced,9800
+M005,2025-09-03,P1,Routine AMC service,"Pressure switch checked, found OK",2500
+M006,2026-03-31,P1,Residents report pump room running at night,Logged for inspection,0
+M007,2026-04-01,P1,"Pressure switch stuck closed, pump running",Pressure switch and relay replaced,7400
